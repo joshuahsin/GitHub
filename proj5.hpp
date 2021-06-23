@@ -54,6 +54,14 @@ public:
 };
 
 template<typename Object>
+void swap(Object *x, Object *y)
+{
+    Object temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+template<typename Object>
 std::vector<Object> MyPriorityQueue<Object>::returnVectorTracker()
 {
 	return vectortracker;
