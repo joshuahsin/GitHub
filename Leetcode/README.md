@@ -157,6 +157,28 @@ The space complexity is O(n) since the String a stores the string value of x, so
 
 <br>
 
+## Longest Substring Without Repeating Characters
+<img width="407" alt="Screen Shot 2022-10-05 at 12 30 23 AM" src="https://user-images.githubusercontent.com/32546754/194005011-134acfc2-56ed-4e33-890f-2311274b8d25.png">
+
+### Constraints
+<img width="361" alt="Screen Shot 2022-10-05 at 12 30 53 AM" src="https://user-images.githubusercontent.com/32546754/194005054-7145e6f9-f379-4071-b2a7-c6c399fb9c2d.png">
+
+### Examples
+<img width="439" alt="Screen Shot 2022-10-05 at 12 31 12 AM" src="https://user-images.githubusercontent.com/32546754/194005101-a926b587-043f-44de-a68c-a344b2fe5d74.png">
+
+### Solution in Python
+<img width="446" alt="Screen Shot 2022-10-05 at 12 36 56 AM" src="https://user-images.githubusercontent.com/32546754/194006063-b7ad6893-47c8-4fbd-a7c5-1c005510f2a7.png">
+
+If the length of s is 0 or 1, return 0 or 1 respectively. Else go through a while loop with a variable i representing the current index. Test a substring starting with the ith index. If the remaining number of character is equal to or less than the current longest substring (result), break. Else, keep adding characters to the current substring (substring) as long as the new character added is not in the current substring. If it is in the current substring, then check if the current substring is greater than the current longest substring (result). If so, replace result with the current substring and increment i so it is after the first duplicate character (No longer substrings are possible before the duplicate chracter). If the for loop reaches the last character, then set the result equal to the current substring (no need to check because of the length check of remaining characters before the for loop). At the end of each loop, increment i. After runing through the while loop , return the length of the greatest substring.
+
+### Time Complexity
+Running through the while loop is estimated O(n log n) complexity assuming n is the size of the string s. The outer while loop is O(n) since it may run through every character and the inner for loop is O(log n) since the range is (n / 2) on average. Therefore, the overall time complexity is O(n log n).
+
+### Space Complexity
+The overall space complexity is O(1) for the instance variables. 
+
+<br>
+
 # Easy Problems
 ## Longest Common Prefix
 <img width="316" alt="Screen Shot 2022-10-04 at 11 29 09 PM" src="https://user-images.githubusercontent.com/32546754/193995337-5426b872-d90f-4ad9-8fc6-451af31fc406.png">
@@ -176,6 +198,8 @@ Initializing the variables is O(1) complexity. The first for loops is O(n) compl
 
 ### Space Complexity
 The overall space complexity is O(1).
+
+<br>
 
 ## Palindrome Number
 <img width="391" alt="Screen Shot 2022-10-04 at 11 50 54 PM" src="https://user-images.githubusercontent.com/32546754/193998359-16a723ab-91a6-445f-9da8-ecd95fd26e8d.png">
