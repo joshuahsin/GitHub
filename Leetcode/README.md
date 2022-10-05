@@ -51,7 +51,7 @@ Assume n is the total number of values in all LinkedLists. The first loop would 
 would be O(n log n). The last loop to append all values to the LinkedList which is returned is O(n) complexity. The overall time complexity is O(n log n).
 
 ### Space Complexity
-The overall space complexity is O(n).
+The overall space complexity is O(2n) for the vector nums which holds all n values in all LinkedLists and the LinkedList answer which is returned.
 
 <br>
 
@@ -134,3 +134,64 @@ The Constructor and getPos and getDir functions are O(1). The step function is O
 
 ### Space Complexity
 The space complexity for all methods and the constructor is O(1).
+
+## Reverse Integer
+<img width="337" alt="Screen Shot 2022-10-04 at 10 44 31 PM" src="https://user-images.githubusercontent.com/32546754/193989684-e2fa330a-3437-42fc-8d14-56461945bd66.png">
+
+### Constraints
+<img width="191" alt="Screen Shot 2022-10-04 at 10 43 55 PM" src="https://user-images.githubusercontent.com/32546754/193989598-61d8d886-eaff-4a6d-8e19-c637e5b3dde2.png">
+
+### Examples
+<img width="338" alt="Screen Shot 2022-10-04 at 10 44 18 PM" src="https://user-images.githubusercontent.com/32546754/193989650-7c892d4a-91de-475a-bc97-dd237f63ccd8.png">
+
+### Solution in Java
+<img width="436" alt="Screen Shot 2022-10-04 at 10 51 56 PM" src="https://user-images.githubusercontent.com/32546754/193990570-98b5551b-5452-4f65-bcc0-e74c175a5ad8.png">
+
+To solve this problem, I first checked if the integer x was equal to zero. If so, return 0. If not, set up a boolean representing whether the number is negative, a reverse_string variable to hold the inverse integer and a string "a" that holds the equivalent string value of x. Next, iterate through the string "a" from back to front, appending each digit to reverse_string. At the last character, check if it is '-'. If so, set the boolean negative to zero. Otherwise, add the character as normal. Finally, return the answer String in Integer form, multiplying by -1 if the boolean negative is true. Also I used try catch blocks to catch numbers which go out the integer range, in which case I return 0.
+
+### Time Complexity
+The beginning check is O(1) and all variable initializations are O(1) except for a, which is O(n) - assuming n is the number of digits in x. The for loop is also O(n) to go through all characters in the string representation of the integer x. The final checks and returns are O(1), making the overall time complexity O(n).
+
+### Space Complexity
+The space complexity is O(n) since the String a stores the string value of x, so it's length is based off the number of digits in x.
+
+<br>
+
+# Easy Problems
+## Longest Common Prefix
+<img width="316" alt="Screen Shot 2022-10-04 at 11 29 09 PM" src="https://user-images.githubusercontent.com/32546754/193995337-5426b872-d90f-4ad9-8fc6-451af31fc406.png">
+
+### Constraints
+<img width="316" alt="Screen Shot 2022-10-04 at 11 29 32 PM" src="https://user-images.githubusercontent.com/32546754/193995387-87a56527-27c2-4914-869a-df4cd618115a.png">
+
+### Examples
+<img width="331" alt="Screen Shot 2022-10-04 at 11 29 54 PM" src="https://user-images.githubusercontent.com/32546754/193995432-9c4490ed-1f9b-44c4-a4bd-a0d99a3587c3.png">
+
+### Solution in Java
+<img width="414" alt="Screen Shot 2022-10-04 at 11 31 13 PM" src="https://user-images.githubusercontent.com/32546754/193995619-9e28fb6d-965c-4b33-b853-295393a3742b.png">
+To solve this problem, set a string variable prefix, a boolean variable match, and a length variable. First, loop through the string array to find the length of the smallest word. Next, loop through a for loop the same number of times as the amount of characters in the shortest word. For each character, take the ith character of the first word in the array and compare them to the ith character in every other array. If all characters match, add the character to the prefix. If not, then break the loop. Then return the prefix.
+
+### Time Complexity
+Initializing the variables is O(1) complexity. The first for loops is O(n) complexity assuming n is the number of words in array strs. The second array is O(min_length * n) since the outer loop iterates through a maximum min_length times for each character in the mimumum length word in strs. The inner loop loops through n times for each word in strs. So the overall time complexity is O(min_length * n).
+
+### Space Complexity
+The overall space complexity is O(1).
+
+## Palindrome Number
+<img width="391" alt="Screen Shot 2022-10-04 at 11 50 54 PM" src="https://user-images.githubusercontent.com/32546754/193998359-16a723ab-91a6-445f-9da8-ecd95fd26e8d.png">
+
+### Constraints
+<img width="168" alt="Screen Shot 2022-10-04 at 11 51 26 PM" src="https://user-images.githubusercontent.com/32546754/193998442-59167fc2-32f6-466b-90d0-71ebbc1f8d92.png">
+
+### Examples
+<img width="431" alt="Screen Shot 2022-10-04 at 11 51 47 PM" src="https://user-images.githubusercontent.com/32546754/193998498-88105b83-e43d-42bb-90f2-0931f1c698d8.png">
+
+### Solution in Java
+<img width="475" alt="Screen Shot 2022-10-04 at 11 52 12 PM" src="https://user-images.githubusercontent.com/32546754/193998569-a3ef6924-e584-4780-ac70-00f6e413d5f4.png">
+First, take the string value of the integer and put it in a string variable num. Then get the middle index of the palindrome. Next, loop through a for loop for half the length of the digits starting from 0. For each iteration, check the character at i with the corresponding character which should be in the other half of the string num assuming the string is a palindrome. If the characters do not match, break and return false. Else, return true.
+
+### Time Complexity
+Taking the string value of x is O(n) complexity assuming n is the number of digits in x. The for loop is O(n / 2) complexity, as it loops through n / 2 times, or half the number of digits in x. Therefore, the overall time complexity of the program is O(n).
+
+### Space Complexity
+The overall space complexity is O(n) since the length of num is based on how many digits are in x.
