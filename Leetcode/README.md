@@ -14,6 +14,7 @@
 
 ### Solution in C
 <img width="700" alt="Screen Shot 2022-10-03 at 5 00 10 PM" src="https://user-images.githubusercontent.com/32546754/193706558-51204a76-ac68-4a20-bdcd-9bb4f9cec3d3.png">
+
 To solve this problem, I first created an integer array of the size of the floor of half the sum of the size of both arrays + 1. I only made the array half the size of the total merged array 
 since I only needed the middle value/values of the larger sorted array. I then initialized two integer values representing the current index of both arrays. After this, I iterated through a 
 loop the same amount of times as the size of the array I created, adding  the current smallest value between the two arrays to the array and incrementing the corresponding array index each 
@@ -40,6 +41,7 @@ The overall space complexity is O(m + n / 2).
 
 ### Solution in C++
 <img width="509" alt="Screen Shot 2022-10-03 at 8 07 02 PM" src="https://user-images.githubusercontent.com/32546754/193725915-1551def1-b483-4c24-978d-ba3d64354d52.png">
+
 To solve this problem, first iterate through the vector of LinkedLists. For every value in each LinikedList, insert the value into a vector of integers. If the vector is empty, return NULL. 
 If the vector is not empty, sort the vector. Next, create a head ListNode with the first value and a tracking ListNode to add to the head and move after adding a ListNode. Iterate through 
 the rest of the vector of sorted values and add on the the linked list using the tracking ListNode. Finally, return the head ListNode.
@@ -63,6 +65,8 @@ The overall space complexity is O(n).
 <img width="530" alt="Screen Shot 2022-10-03 at 9 45 03 PM" src="https://user-images.githubusercontent.com/32546754/193736247-a1d825c2-df35-40e4-90e8-f135990f22b3.png">
 
 ### Solution in C++
+<img width="463" alt="Screen Shot 2022-10-04 at 9 44 13 PM" src="https://user-images.githubusercontent.com/32546754/193983103-76921fd7-327a-4d02-a8c8-b708554dd989.png">
+
 - Start with left and right trackers and left and right wall variables to keep track of the current greatest values on the left and right side. Then loop through a while loop to calculate the result 
 while left tracker is less than right tracker. 
 - In the while loop, check if the current height of left is greater than or equal to the current height of right and the height of left is greater than the 
@@ -105,3 +109,28 @@ complexity, so the overall time complexity is O(n).
 
 ### Space Complexity
 The overall space complexity is O(1).
+
+<br>
+
+## Walking Robot Simulation II
+<img width="525" alt="Screen Shot 2022-10-04 at 9 27 06 PM" src="https://user-images.githubusercontent.com/32546754/193981303-1841c24e-5213-475f-b6f7-775965f0692f.png">
+
+### Constraints
+<img width="520" alt="Screen Shot 2022-10-04 at 9 27 44 PM" src="https://user-images.githubusercontent.com/32546754/193981360-df3af632-8d3c-4bc4-bd76-94e4c35ffeae.png">
+
+### Examples
+<img width="519" alt="Screen Shot 2022-10-04 at 9 28 11 PM" src="https://user-images.githubusercontent.com/32546754/193981415-15e65478-091d-4861-b97c-27fb6c948824.png">
+<img width="498" alt="Screen Shot 2022-10-04 at 9 28 36 PM" src="https://user-images.githubusercontent.com/32546754/193981457-4d76a778-747b-471e-a488-df6681086187.png">
+
+### Solution in C++
+<img width="516" alt="Screen Shot 2022-10-04 at 9 42 51 PM" src="https://user-images.githubusercontent.com/32546754/193982893-c1b39286-a619-435d-97a4-f2bbfe7caf4b.png">
+<img width="435" alt="Screen Shot 2022-10-04 at 9 43 10 PM" src="https://user-images.githubusercontent.com/32546754/193982916-66e58646-d65d-481a-a834-07948071c428.png">
+<img width="256" alt="Screen Shot 2022-10-04 at 9 47 35 PM" src="https://user-images.githubusercontent.com/32546754/193983363-47bb376b-8705-4ecb-a4ca-0a724f010b9c.png">
+
+To solve this problem, I initalized private integer instance variables representing the grid width, grid height, and perimeter size, a string instance variable represeting the direction the robot is facing, and a integer vector represting the coordinate position of the robot. Upon construction of Robot object, set the variables, calculate the perimeter, set the position of the robot to (0, 0), and set the direction to "East". For the getters getPos and getDir, return the integer vector position and the String direction. To move the robot, first check if the number of steps is greater than the perimeter. If so, the moving the robot by the mod of the number of steps is the same as moving the robot by that number of steps. If so, set the direction to South, as that would be the correction direction after iterating through the perimeter. This is your new number of steps. If the number of steps is less than or equal to perimeter, do nothing. After this, loop through a while loop, moving the robot along each direction by the length of the side and turning it towards the correspoding direction. Keep doing this while subtracting the steps by the number of spaces traveled on each side until the number of steps is completed (At this point the current number of steps will be less than or equal to the size of that grid side. 
+
+### Time Complexity
+The Constructor and getPos and getDir functions are O(1). The step function is O(1) for the if(num > perimeter) prechecking and the while loop is O(steps / ((length + width) / 2)) for the number of sides traversed and the constant work done on every iteration. So the step function is O(steps / ((length + width) / 2)) overall time complexity.
+
+### Space Complexity
+The space complexity for all methods and the constructor is O(1).
